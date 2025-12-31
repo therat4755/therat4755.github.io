@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prota | Find & Test the Future of Apps</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #0a0a0c;
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #fff 0%, #a5b4fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero-glow {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            height: 600px;
+            background: radial-gradient(circle at 50% 30%, rgba(79, 70, 229, 0.15) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .card-border {
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+        }
+        .screenshot-placeholder {
+            background: linear-gradient(45deg, #1e1b4b 0%, #312e81 100%);
+            border: 2px dashed rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.4);
+            border-radius: 24px;
+        }
+        .pin-icon {
+            filter: drop-shadow(0 0 8px rgba(99, 102, 241, 0.8));
+        }
+    </style>
+</head>
+<body class="text-white selection:bg-indigo-500 selection:text-white">
+
+    <div class="hero-glow"></div>
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 border-b border-white/5 bg-black/50 backdrop-blur-xl">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <!-- Pinned Icon -->
+                <img src="icon.png" alt="Prota Icon" class="w-8 h-8 pin-icon" />
+                <span class="text-2xl font-extrabold tracking-tight">Prota</span>
+            </div>
+            <div class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-400">
+                <a href="#discover" class="hover:text-white transition-colors">Discover</a>
+                <a href="#community" class="hover:text-white transition-colors">Community</a>
+                <a href="https://testflight.apple.com/join/A9hdmmrx" class="px-5 py-2.5 bg-white text-black rounded-full hover:bg-slate-200 transition-all font-bold">Join Beta</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-20 pb-32 px-6 overflow-hidden">
+        <div class="max-w-7xl mx-auto text-center">
+            <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-bold uppercase tracking-widest mb-8">
+                <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
+                </span>
+                <span>Now in Open Beta</span>
+            </div>
+            <h1 class="text-6xl md:text-8xl font-extrabold tracking-tight mb-8">
+                Find the future <br/><span class="gradient-text">before it launches.</span>
+            </h1>
+            <p class="max-w-2xl mx-auto text-lg md:text-xl text-slate-400 mb-12 leading-relaxed">
+                Discover unreleased gems, test cutting-edge features, and shape the apps of tomorrow. Prota connects ambitious developers with passionate beta testers.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20">
+                <button onclick="window.location.href='https://testflight.apple.com/join/A9hdmmrx'" class="w-full sm:w-auto px-8 py-4 bg-indigo-600 hover:bg-indigo-500 rounded-2xl font-bold text-lg shadow-xl shadow-indigo-600/20 transition-all flex items-center justify-center gap-2">
+    Download on TestFlight
+</button>            </div>
+
+            <!-- Hero Screenshot Placeholder -->
+            <div class="relative max-w-4xl mx-auto px-4">
+            </div>
+            <img src="hero-screenshot.png" alt="Hero Screenshot" class="mx-auto rounded-3xl shadow-2xl shadow-indigo-900/30 border border-white/10" width="500" height="500">
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section id="discover" class="py-24 px-6 border-t border-white/5">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-4xl font-extrabold mb-6 leading-tight">Find curated beta apps <br/>across every category.</h2>
+                    <p class="text-slate-400 text-lg mb-10">Prota's powerful discovery engine highlights the most promising projects. From productivity tools to experimental games, be the first to experience what's next.</p>
+                    
+                    <ul class="space-y-6">
+                        <li class="flex items-start gap-4">
+                            <div class="p-2 bg-indigo-600/20 rounded-lg text-indigo-400 mt-1">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg">One-Click Testing</h4>
+                                <p class="text-slate-500">Seamless integration with TestFlight and Play Store Beta.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="p-2 bg-indigo-600/20 rounded-lg text-indigo-400 mt-1">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg">Direct Feedback</h4>
+                                <p class="text-slate-500">Chat directly with developers to report bugs or suggest ideas.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <img src="discovery-screenshot.png" alt="Discovery Screenshot" class="mx-auto rounded-3xl shadow-2xl shadow-indigo-900/30 border border-white/10">
+            </div>
+        </div>
+    </section>
+
+    <!-- Posting Feature -->
+    <section id="community" class="py-24 px-6 bg-indigo-950/20">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-16 items-center flex-row-reverse">
+                <div class="order-last md:order-first">
+                    <img src="posting-screenshot.png" alt="Posting Screenshot" class="mx-auto rounded-3xl shadow-2xl shadow-indigo-900/30 border border-white/10">
+                </div>
+                <div>
+                    <h2 class="text-4xl font-extrabold mb-6 leading-tight">Post, Share, and <br/>Inspire the Community.</h2>
+                    <p class="text-slate-400 text-lg mb-10">It's not just a directory—it's a social hub. Share your findings, post screenshots of your favorite UI, and see what others are testing in real-time.</p>
+                    
+                        <div class="flex items-center gap-4 text-xs font-bold text-indigo-400 uppercase tracking-tighter">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- App Gallery Placeholders -->
+    <section class="py-24 px-6">
+        <div class="max-w-7xl mx-auto text-center mb-16">
+            <h2 class="text-3xl font-extrabold mb-4">Inside Prota</h2>
+            <p class="text-slate-500">A sneak peek at the experience</p>
+        </div>
+        <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <img src="app-galery.png" alt="App Gallery" class="mx-auto rounded-3xl shadow-2xl shadow-indigo-900/30 border border-white/10">
+            <img src="create-screenshot.png" alt="Creation page" class="mx-auto rounded-3xl shadow-2xl shadow-indigo-900/30 border border-white/10">
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-16 px-6 border-t border-white/5">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="flex items-center space-x-3">
+                <div class="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center">
+                    <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M16,12V4H17V2H7V4H8V12L6,14V16H11.2V22H12.8V16H18V14L16,12Z" /></svg>
+                </div>
+                <span class="text-xl font-bold">Prota</span>
+            </div>
+            <p class="text-slate-600 text-sm">THIS IS COMMUNITY MADE AND COMMUNITY MAINTAINED! NOT ASSOCIATED WITH THE ORIGINAL DEVELOPER.</p>
+            <div class="flex space-x-6 text-slate-400 text-sm">
+                <a href="https://linktr.ee/ahdiverse" class="hover:text-white transition-colors">Original developer linktree</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
