@@ -1,0 +1,304 @@
+<!DOCTYPE html><html lang="en" w-tid="1"><head w-tid="3">
+    
+<title>8-Bit Audio Converter</title>
+<meta property="og:title" content="8-Bit Audio Converter">
+<meta property="og:url" content="https://ewd80pf3xyujhgmx_q1_.c.websim.com?v=17">
+<meta property="og:type" content="website">
+<meta property="twitter:card" content="summary_large_image">
+<meta property="og:image" content="https://images.websim.com/v1/project/ewd80pf3xyujhgmx_q1_/revision/17/1200.jpeg">
+<meta property="twitter:image" content="https://images.websim.com/v1/project/ewd80pf3xyujhgmx_q1_/revision/17/1200.jpeg">
+<link rel="canonical" href="https://websim.com/@Jechuu/8-bit-audio-converter">
+<link rel="stylesheet" href="https://api.websim.com/fonts.css?v=96d8d45aef43cdf1e6d632c4395cd840f962532d">
+<style class="websim-injected websim-ios-mobile-fix">
+/* iOS zoom prevention and overscroll behavior - injected by WebSim */
+html, body {
+  touch-action: pan-x pan-y;
+  -webkit-text-size-adjust: 100%;
+  overscroll-behavior: none;
+  overscroll-behavior-y: none;
+}
+input, textarea, select {
+  font-size: max(1rem, 16px) !important;
+}
+</style>
+
+
+<meta charset="UTF-8" w-tid="5">
+    <!--title>8-Bit Audio Converter</title-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" w-tid="9">
+    <style w-tid="11">
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-image: url('https://img.lb.wbmdstatic.com/vim/live/webmd/consumer_assets/site_images/article_thumbnails/BigBead/what_to_know_about_house_mice_bigbead/1800x1200_getty_rf_what_to_know_about_house_mice_bigbead.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            font-family: 'Comic Sans MS', cursive;
+            color: #000000;  
+            text-shadow: 0 0 10px #ffffff;  
+        }
+        .container {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.75);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-shadow: 0 0 10px #ffffff;  
+        }
+        .effect-controls label {
+            text-shadow: 0 0 10px #ffffff;  
+        }
+        #progressBar {
+            margin-top: 20px;
+            display: none;
+            color: #00FFFF;  
+            text-shadow: 0 0 10px #00FFFF;  
+            font-family: 'Press Start 2P', cursive;
+            text-align: center;
+        }
+        .effect-controls {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .effect-slider {
+            width: 200px;
+        }
+        .audio-label {
+            margin-top: 10px;
+            font-size: 0.8em;
+            display: none;
+        }
+        #convertBtn {
+            font-family: 'Comic Sans MS', cursive;
+            background-color: #00FFFF;  /* Neon blue */
+            color: black;
+            border: 2px solid #00FFFF;
+            text-shadow: 0 0 10px #00FFFF;
+            box-shadow: 0 0 15px #00FFFF;
+            transition: all 0.3s ease;
+        }
+        #convertBtn:hover {
+            background-color: black;
+            color: #00FFFF;
+            box-shadow: 0 0 20px #00FFFF;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&amp;display=swap" rel="stylesheet" w-tid="13">
+</head>
+<body w-tid="15">
+    <div class="container" w-tid="17">
+        <h1 w-tid="19">therat4755's 8 bit music converter</h1>
+        <input type="file" id="audioInput" accept="audio/*" class="form-control my-3" w-tid="21">
+        
+        <div class="effect-controls" w-tid="23">
+            <div w-tid="25">
+                <label w-tid="27">Bit Depth</label>
+                <input type="range" id="bitDepthSlider" min="1" max="16" value="8" class="form-range effect-slider" w-tid="29">
+                <span id="bitDepthValue" w-tid="31">8 bits</span>
+            </div>
+            <div w-tid="33">
+                <label w-tid="35">Sample Rate Reduction</label>
+                <input type="range" id="sampleRateSlider" min="1" max="16" value="8" class="form-range effect-slider" w-tid="37">
+                <span id="sampleRateValue" w-tid="39">8x</span>
+            </div>
+        </div>
+
+        <button id="convertBtn" class="btn btn-primary mt-3" w-tid="41">Pixelate Audio</button>
+        <div id="progressBar" class="mt-3" w-tid="43" style="display: none;">
+            Turning Your Audio Into An 8-bit Audio...
+        </div>
+        <div class="audio-container" w-tid="45">
+            <p id="inputAudioLabel" class="audio-label" w-tid="47" style="display: block;">Input Audio</p>
+            <audio id="originalAudio" controls="" class="mt-3" style="display: block;" w-tid="49" src="blob:https://ewd80pf3xyujhgmx_q1_.c.websim.com/ec2ff301-66f1-4f6f-b646-83cfbb344137"></audio>
+            
+            <p id="outputAudioLabel" class="audio-label" w-tid="51" style="display: block;">8-Bit Output Audio</p>
+            <audio id="convertedAudio" controls="" class="mt-3" style="display: block;" w-tid="53" src="blob:https://ewd80pf3xyujhgmx_q1_.c.websim.com/74f5e6d9-0c73-4c0e-bd13-24c3db657c53"></audio>
+        </div>
+        <p>NOT MINE!</p>
+        <a href="https://websim.com/@Jechuu/8-bit-audio-converter">ORIGINAL</a>
+    </div>
+
+    <script type="text/javascript" crossorigin="anonymous" src="https://e.wbsm.ai/static/surveys.js?v=1.268.1"></script><script type="text/javascript" crossorigin="anonymous" src="https://e.wbsm.ai/array/phc_VHMOlrdxAbgSZHeF0SdSf07LZLRLAg5pZuTHkJGn050/config.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js" w-tid="55"></script>
+    <script w-tid="57">
+        // Update existing script to reflect new default values
+        document.getElementById('bitDepthSlider').addEventListener('input', function() {
+            document.getElementById('bitDepthValue').textContent = `${this.value} bits`;
+        });
+
+        document.getElementById('sampleRateSlider').addEventListener('input', function() {
+            document.getElementById('sampleRateValue').textContent = `${this.value}x`;
+        });
+
+        // Set initial text to match default values
+        document.getElementById('bitDepthValue').textContent = '8 bits';
+        document.getElementById('sampleRateValue').textContent = '8x';
+
+        document.getElementById('audioInput').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            const originalAudioElement = document.getElementById('originalAudio');
+            const inputAudioLabel = document.getElementById('inputAudioLabel');
+            
+            // Add null check and type check
+            if (!file || !file.type.startsWith('audio/')) {
+                alert('Please select a valid audio file');
+                this.value = ''; // Reset the file input
+                return;
+            }
+
+            try {
+                originalAudioElement.src = URL.createObjectURL(file);
+                originalAudioElement.style.display = 'block';
+                inputAudioLabel.style.display = 'block';
+            } catch (error) {
+                console.error('Error creating object URL:', error);
+                alert('Error loading audio file');
+                this.value = ''; // Reset the file input
+            }
+        });
+
+        document.getElementById('convertBtn').addEventListener('click', async () => {
+            const fileInput = document.getElementById('audioInput');
+            const convertedAudioElement = document.getElementById('convertedAudio');
+            const progressBar = document.getElementById('progressBar');
+
+            if (!fileInput.files.length) {
+                alert('Please upload an audio file first');
+                return;
+            }
+
+            progressBar.style.display = 'block';
+
+            const file = fileInput.files[0];
+            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            
+            try {
+                const arrayBuffer = await file.arrayBuffer();
+                const audioBuffer = await audioContext.decodeAudioData(arrayBuffer);
+
+                // Enhanced bitcrusher conversion
+                const bitDepth = parseInt(document.getElementById('bitDepthSlider').value);
+                const sampleRateReduction = parseInt(document.getElementById('sampleRateSlider').value);
+                const convertedBuffer = await createBitcrushedBuffer(audioContext, audioBuffer, bitDepth, sampleRateReduction, (progress) => {
+                    // Optional: You could update the text to show progress if desired
+                    // progressBar.textContent = `Turning Your Audio Into An 8-bit Audio... ${progress}%`;
+                });
+
+                // Convert to WAV
+                const wavBlob = bufferToWave(convertedBuffer, convertedBuffer.length);
+                convertedAudioElement.src = URL.createObjectURL(wavBlob);
+                convertedAudioElement.style.display = 'block';
+                
+                // Show output audio label
+                document.getElementById('outputAudioLabel').style.display = 'block';
+                
+                progressBar.style.display = 'none';
+            } catch (error) {
+                console.error('Conversion error:', error);
+                alert('Error converting audio');
+                progressBar.style.display = 'none';
+            }
+        });
+
+        // Enhanced bitcrusher effect function
+        async function createBitcrushedBuffer(audioContext, sourceBuffer, bitDepth, sampleRateReduction, progressCallback) {
+            const channels = sourceBuffer.numberOfChannels;
+            const sampleRate = sourceBuffer.sampleRate;
+            const length = sourceBuffer.length;
+
+            const convertedBuffer = audioContext.createBuffer(channels, length, sampleRate);
+
+            for (let channel = 0; channel < channels; channel++) {
+                const channelData = sourceBuffer.getChannelData(channel);
+                const convertedChannelData = convertedBuffer.getChannelData(channel);
+
+                for (let i = 0; i < length; i++) {
+                    // Bit depth reduction
+                    const step = Math.pow(2, bitDepth);
+                    let sample = channelData[i];
+                    
+                    // Quantize the sample to reduce bit depth
+                    sample = Math.round(sample * step) / step;
+
+                    // Sample rate reduction
+                    if (i % sampleRateReduction !== 0) {
+                        sample = convertedChannelData[Math.floor(i / sampleRateReduction) * sampleRateReduction] || sample;
+                    }
+
+                    convertedChannelData[i] = sample;
+
+                    // Progress callback
+                    if (i % 1000 === 0) {
+                        progressCallback(Math.round((i / length) * 100));
+                    }
+                }
+            }
+
+            return convertedBuffer;
+        }
+
+        // Existing bufferToWave function remains the same
+        function bufferToWave(abuffer, len) {
+            const numOfChan = abuffer.numberOfChannels;
+            const length = len * numOfChan * 2 + 44;
+            const buffer = new ArrayBuffer(length);
+            const view = new DataView(buffer);
+            const channels = []; 
+            let i, sample;
+            let offset = 0;
+            let pos = 0;
+
+            // Write WAV header
+            setUint32(0x46464952);                         // "RIFF"
+            setUint32(length - 8);                         // file length - 8
+            setUint32(0x45564157);                         // "WAVE"
+
+            setUint32(0x20746d66);                         // "fmt " chunk
+            setUint32(16);                                 // length = 16
+            setUint16(1);                                  // PCM (uncompressed)
+            setUint16(numOfChan);
+            setUint32(abuffer.sampleRate);
+            setUint32(abuffer.sampleRate * 2 * numOfChan); // avg. bytes/sec
+            setUint16(numOfChan * 2);                      // block-align
+            setUint16(16);                                 // 16-bit (hardcoded)
+
+            setUint32(0x61746164);                         // "data" - chunk
+            setUint32(length - pos - 4);                   // chunk length
+
+            // Write interleaved data
+            for (i = 0; i < abuffer.numberOfChannels; i++)
+                channels.push(abuffer.getChannelData(i));
+
+            while (pos < length) {
+                for (i = 0; i < numOfChan; i++) {             // interleave channels
+                    sample = Math.max(-1, Math.min(1, channels[i][offset])); // clamp
+                    sample = (0.5 + sample < 0 ? sample * 32768 : sample * 32767)|0; // scale to 16-bit signed int
+                    view.setInt16(pos, sample, true);          // write 16-bit sample
+                    pos += 2;
+                }
+                offset++; // next source sample
+            }
+
+            // Helper function to set uint
+            function setUint16(data) {
+                view.setUint16(pos, data, true);
+                pos += 2;
+            }
+
+            function setUint32(data) {
+                view.setUint32(pos, data, true);
+                pos += 4;
+            }
+
+            return new Blob([buffer], { type: "audio/wav" });
+        }
+    </script>
+<script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon="{&quot;rayId&quot;:&quot;9cd258790ea44211&quot;,&quot;serverTiming&quot;:{&quot;name&quot;:{&quot;cfExtPri&quot;:true,&quot;cfEdge&quot;:true,&quot;cfOrigin&quot;:true,&quot;cfL4&quot;:true,&quot;cfSpeedBrain&quot;:true,&quot;cfCacheStatus&quot;:true}},&quot;version&quot;:&quot;2025.9.1&quot;,&quot;token&quot;:&quot;4c6229722a6346bc8eb5cb0e5eae5d41&quot;}" crossorigin="anonymous"></script>
+
+</body></html>
