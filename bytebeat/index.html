@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Audio to Bytebeat</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app">
+      <section class="panel panel-input">
+        <div class="row">
+          <label class="file-label">
+            <input id="file-input" type="file" accept="audio/*" />
+            <span>Load audio</span>
+          </label>
+        </div>
+
+        <div class="row stats" id="stats"></div>
+
+        <div class="row ai-status" id="ai-status"></div>
+
+        <div class="row preview-row">
+          <button id="play-preview" disabled>▶ preview</button>
+        </div>
+      </section>
+
+      <section class="panel panel-code">
+        <div class="row hz-row">
+          <label>
+            Hz
+            <input id="hz-output" type="number" readonly />
+          </label>
+          <label class="viz-label">
+            Visual
+            <select id="viz-mode">
+              <option value="wave">Wave</option>
+              <option value="circles">Circles</option>
+              <option value="vsa">VSA</option>
+              <option value="glorp">Glorp</option>
+              <option value="redring">Red Ring</option>
+              <option value="bars">Bars</option>
+              <option value="radial">Radial</option>
+              <option value="spiral">Spiral</option>
+              <option value="shards">Shards</option>
+              <option value="grid">Grid</option>
+              <option value="pulse">Pulse</option>
+              <option value="lava">Lava</option>
+              <option value="comet">Comet</option>
+              <option value="tunnel">Tunnel</option>
+              <option value="nebula">Nebula</option>
+              <option value="glitch">Glitch</option>
+              <option value="radar">Radar</option>
+              <option value="bloom">Bloom</option>
+              <option value="stripes">Stripes</option>
+              <option value="orbit">Orbit</option>
+            </select>
+          </label>
+        </div>
+        <canvas id="viz-canvas"></canvas>
+        <textarea id="code-output" spellcheck="false"></textarea>
+      </section>
+    </main>
+
+    <!-- floating hot-page banner -->
+    <div id="hot-banner" class="hot-banner hidden">
+      <img
+        src="Screenshot_20251212_203034_com.android.chrome.jpg"
+        alt="Websim hot page screenshot"
+        class="hot-banner-img"
+      />
+      <span class="hot-banner-text">THANKS FOR GETTING US ON HOT PAGE!</span>
+    </div>
+
+    <script type="module" src="script.js"></script>
+  </body>
+</html>
+

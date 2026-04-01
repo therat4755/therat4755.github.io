@@ -1,0 +1,236 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: #101010;
+  color: #f5f5f5;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+    "Segoe UI", sans-serif;
+}
+
+body {
+  display: flex;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 8px;
+  width: 100%;
+  height: 100vh;
+}
+
+/* floating hot-page banner */
+.hot-banner {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 50;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+  transform: translate(var(--start-x, 0px), var(--start-y, 0px));
+  opacity: 0;
+  animation: hot-banner-fly 5s ease-in-out forwards;
+  pointer-events: none;
+}
+
+.hot-banner.hidden {
+  display: none;
+}
+
+.hot-banner-img {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.hot-banner-text {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+
+@keyframes hot-banner-fly {
+  0% {
+    opacity: 0;
+    transform: translate(var(--start-x, 0px), var(--start-y, 0px)) scale(0.9);
+  }
+  10% {
+    opacity: 1;
+    transform: translate(calc(var(--start-x, 0px) + 10px), calc(var(--start-y, 0px) + 5px)) scale(1);
+  }
+  70% {
+    opacity: 1;
+    transform: translate(calc(var(--mid-x, 20px)), calc(var(--mid-y, -10px))) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--end-x, 120vw), var(--end-y, -40vh)) scale(0.8);
+  }
+}
+
+.panel {
+  background: #171717;
+  border-radius: 10px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.panel-input {
+  flex: 0 0 auto;
+  gap: 6px;
+}
+
+.panel-code {
+  flex: 1 1 auto;
+  gap: 6px;
+  min-height: 0;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.file-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid #333;
+  background: #222;
+  color: #f5f5f5;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.file-label:hover {
+  background: #262626;
+}
+
+.file-label input {
+  display: none;
+}
+
+.stats {
+  font-size: 11px;
+  color: #bbb;
+  min-height: 1.3em;
+  flex-wrap: wrap;
+}
+
+.stats span + span::before {
+  content: "•";
+  margin: 0 4px;
+  color: #555;
+}
+
+.ai-status {
+  font-size: 11px;
+  color: #8ab4ff;
+  min-height: 1.3em;
+}
+
+.preview-row {
+  justify-content: flex-start;
+}
+
+button {
+  border: none;
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-size: 13px;
+  background: #2a2a2a;
+  color: #f5f5f5;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+button:not(:disabled):active {
+  transform: translateY(1px);
+}
+
+.hz-row {
+  justify-content: space-between;
+}
+
+.hz-row label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #bbb;
+}
+
+.viz-label select {
+  padding: 4px 8px;
+  border-radius: 999px;
+  border: 1px solid #333;
+  background: #111;
+  color: #f5f5f5;
+  font-size: 12px;
+}
+
+#viz-canvas {
+  width: 100%;
+  height: 90px;
+  border-radius: 8px;
+  background: #050505;
+  border: 1px solid #222;
+}
+
+#hz-output {
+  width: 80px;
+  padding: 4px 6px;
+  border-radius: 999px;
+  border: 1px solid #333;
+  background: #111;
+  color: #f5f5f5;
+  font-size: 12px;
+}
+
+#code-output {
+  flex: 1 1 auto;
+  width: 100%;
+  resize: none;
+  border-radius: 8px;
+  border: 1px solid #333;
+  background: #080808;
+  color: #f5f5f5;
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco,
+    Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 11px;
+  padding: 8px;
+  line-height: 1.4;
+  min-height: 0;
+}
+
+#code-output:focus-visible,
+#hz-output:focus-visible {
+  outline: 1px solid #4f8cff;
+  outline-offset: 0;
+}
+
