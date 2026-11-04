@@ -1,0 +1,72 @@
+/* Design tokens taken from Figma "My website design" (Liquid Glass, dark) */
+:root{
+  --bg:#1a1a1a; --text:#fff;
+  --glass:rgba(24,24,24,.45); --glass-border:rgba(255,255,255,.2);
+  --font-ui:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --font-head:'Comic Relief','Comic Sans MS','Comic Neue',cursive;
+  --radius-card:24px;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--text);font-family:var(--font-ui);font-size:20px;line-height:1.5;padding:24px}
+a{color:inherit}
+.glass{
+  position:relative;isolation:isolate;
+  background:linear-gradient(135deg,rgba(255,255,255,.16),rgba(255,255,255,.04) 60%,rgba(255,255,255,.1));
+  -webkit-backdrop-filter:blur(14px) saturate(1.8) brightness(1.08);backdrop-filter:blur(14px) saturate(1.8) brightness(1.08);
+  border:1px solid rgba(255,255,255,.22);
+  box-shadow:inset 2px 2px 1px -1px rgba(255,255,255,.7),inset -1.5px -1.5px 1px -1px rgba(255,255,255,.35),inset 0 0 22px rgba(255,255,255,.07),0 14px 38px rgba(0,0,0,.4);
+}
+/* refraction (Chromium): SVG displacement filter from the page's <svg id="lg"> */
+@supports (backdrop-filter:url(#lg)){.glass{backdrop-filter:blur(5px) url(#lg) saturate(1.8) brightness(1.08)}}
+/* specular sheen follows the pointer */
+.glass::before{
+  content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:-1;
+  background:radial-gradient(circle at var(--mx,30%) var(--my,0%),rgba(255,255,255,.34),transparent 55%);
+  opacity:.7;transition:opacity .2s;
+}
+.glass:hover::before{opacity:1}
+.hero{
+  position:relative;max-width:1316px;margin:0 auto;aspect-ratio:1316/897;border-radius:var(--radius-card);overflow:hidden;
+  background:#4c7a2a url(assets/rat.jpg) center/cover no-repeat;box-shadow:0 20px 60px rgba(0,0,0,.5);
+}
+.nav{
+  position:fixed;top:16px;left:0;right:0;margin:0 auto;z-index:50;
+  width:min(588px,calc(100% - 24px));height:76px;border-radius:var(--radius-card);
+  display:flex;align-items:center;justify-content:space-between;padding:0 14px 0 38px;
+}
+.nav .brand{text-decoration:none}
+.nav ul{display:flex;gap:28px;list-style:none;margin:0;padding:0}
+.nav a{text-decoration:none}
+.nav a:hover,.nav a[aria-current]{text-decoration:underline;text-underline-offset:6px}
+.hero-content{position:absolute;left:0;right:0;bottom:2.8%;text-align:center;padding:0 20px}
+h1{font-family:var(--font-head);font-weight:400;font-size:clamp(28px,3.65vw,48px);line-height:1.2;margin:0 0 25px;text-shadow:0 2px 12px rgba(0,0,0,.6)}
+.btn-row{display:flex;flex-wrap:wrap;gap:47px;justify-content:center}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;height:89px;min-width:257px;padding:0 40px;
+  border-radius:999px;font-size:28px;text-decoration:none;transition:transform .15s,background .15s;
+}
+.btn:hover{transform:translateY(-2px);background:rgba(60,60,60,.55)}
+main{max-width:1316px;margin:48px auto 0}
+.contact{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:center;text-align:center;margin:0 0 32px}
+button.btn{font-family:inherit;color:inherit;cursor:pointer}
+.btn-sm{height:48px;min-width:0;padding:0 28px;font-size:20px}
+footer{max-width:1316px;margin:32px auto 0;font-size:14px;opacity:.6}
+/* projects page */
+.grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));list-style:none;padding:0}
+.card{display:block;padding:28px;border-radius:var(--radius-card);text-decoration:none;font-size:22px;transition:transform .15s}
+.card:hover{transform:translateY(-3px)}
+.card small{display:block;opacity:.6;font-size:14px;margin-top:6px}
+h2{font-family:var(--font-head);font-weight:400;font-size:36px}
+@media(max-width:800px){
+  body{padding:12px}
+  .hero{aspect-ratio:auto;min-height:620px}
+  .nav{top:12px;padding:0 20px;height:64px}
+  .hero-content{bottom:20px}
+  .btn-row{gap:14px}.btn{height:64px;min-width:0;flex:1;font-size:20px;padding:0 20px}
+}
+
+.hero::after{content:"";position:absolute;inset:auto 0 0 0;height:45%;background:linear-gradient(transparent,rgba(0,0,0,.55));pointer-events:none}
+.hero-content{z-index:2}
+.page-nav ~ main{margin-top:110px}
+.btn:hover{background:linear-gradient(135deg,rgba(255,255,255,.26),rgba(255,255,255,.08))}

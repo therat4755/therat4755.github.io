@@ -1,18 +1,43 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0; url=https://www.google.com">
-    <title>Redirecting...</title>
-    <style>
-        body { background-color: #0f172a; margin: 0; }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>therat4755</title>
+<meta name="description" content="Hi! I'm therat4755! I am a developer">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Comic+Relief&family=Inter:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1 style="color: white;">Redirecting to Google Sites...</h1>
-    <h4 style="color: white;">I suck at webdev</h4>
-    <script>
-        window.location.href = "https://sites.google.com/view/therat4755/home";
-    </script>
+<header class="hero">
+  <nav class="nav glass" aria-label="Main">
+    <a class="brand" href="index.html">therat4755</a>
+    <ul>
+      <li><a href="index.html" aria-current="page">home</a></li>
+      <li><a href="projects.html">my projects</a></li>
+    </ul>
+  </nav>
+  <div class="hero-content">
+    <h1>Hi! I'm therat4755! I am a developer</h1>
+    <div class="btn-row">
+      <a class="btn glass" href="https://gravatar.com/unabashedlycreation28e7f1401a">My linktree</a>
+      <a class="btn glass" href="projects.html">My projects</a>
+    </div>
+  </div>
+</header>
+<main>
+  <div class="contact">
+    <span>You can contact me: <a href="mailto:soundboyfm2@gmail.com">soundboyfm2@gmail.com</a> (i will never respond)</span>
+    <button type="button" class="btn btn-sm glass" id="copy" data-text="soundboyfm2@gmail.com">Copy</button>
+  </div>
+  <h3>This website is VERY WIP! Some pages will lead to old website! It will be removed soon! Some elements are still not ported to this one!</h3>
+  <a href="https://sites.google.com/view/therat4755/home">Old website</a>
+</main>
+<footer>© therat4755</footer>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="lg" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".008 .012" numOctaves="2" seed="7" result="n"/><feGaussianBlur in="n" stdDeviation="2" result="b"/><feDisplacementMap in="SourceGraphic" in2="b" scale="38" xChannelSelector="R" yChannelSelector="G"/></filter></svg>
+<script>document.querySelectorAll('.glass').forEach(e=>e.addEventListener('pointermove',t=>{const r=e.getBoundingClientRect();e.style.setProperty('--mx',(t.clientX-r.left)+'px');e.style.setProperty('--my',(t.clientY-r.top)+'px')}));
+document.getElementById('copy').addEventListener('click',async e=>{const b=e.currentTarget;try{await navigator.clipboard.writeText(b.dataset.text)}catch{const t=document.createElement('textarea');t.value=b.dataset.text;document.body.appendChild(t);t.select();document.execCommand('copy');t.remove()}b.textContent='Copied!';setTimeout(()=>b.textContent='Copy',1500)});
+</script>
 </body>
 </html>
